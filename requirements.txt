@@ -1,0 +1,6 @@
+Django--2.0.4
+whitenoise
+dj-database-url
+paycopg2
+gunicorn
+django_heroku

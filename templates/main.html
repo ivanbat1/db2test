@@ -1,0 +1,102 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My test</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'static/css/foundation.css' %}">
+    <style>
+       .right {
+        list-style: none;
+        background: #EEE3DB;
+        margin: 0;
+        padding-left: 40px;
+        border-radius: 5px;
+        }
+        .right li {
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+        line-height: 40px;
+        border-bottom: 1px solid #D4D7D6;
+        position: relative;
+        }
+        .right a {
+        text-decoration: none;
+        color: #464643;
+        display: block;
+        line-height: 40px;
+        position: relative;
+        }
+        .right a:before {
+        content:"";
+        position: absolute;
+        left: -20px;
+        top: 6px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #A58063;
+        }
+        .right li:last-child {border-bottom: none;}
+        .right li:before,
+        .right li:after {
+        content:"";
+        position: absolute;
+        border-radius: 50%;
+        }
+        .right li:before {
+        top: calc(50% - 5px);
+        background: #E0926E;
+        left: -22px;
+        width: 10px;
+        height: 10px;
+        transition: 0.5s linear;
+        }
+        .right li:after {
+        bottom: 6px;
+        left: -20px;
+        width: 6px;
+        height: 6px;
+        background: #A58063;
+        }
+        .right li:hover:before
+        {background: #FFCE08;}
+        h6 span{
+          display: block;
+          margin-top: 0.5em;
+          font-family: Verdana;
+          font-size: 0.6em;
+          font-weight: normal;
+          letter-spacing: 0em;
+          text-shadow: none;
+        }
+        .information {
+        position: absolute;
+        right: 0;
+        top: 30px;
+        width: 400px;
+        font-size: 90%;
+        padding: 100px;
+        padding-bottom: 35px;}
+    </style>
+</head>
+<body>
+<div class="top-bar">
+    <section class="top-bar-section">
+        <ul class="right">
+            {% if username %}
+                <li><a href="/auth/logout/">logout ({{ username }})</a></li>
+            {% else %}
+                <li><a href="/auth/login/">login</a></li>
+            {% endif %}
+        </ul>
+    </section>
+</div>
+<h1><a href='/'>My test DB2</a></h1>
+<div class="row">
+{% block article %}{% endblock %}
+{% block login %}{% endblock %}
+</div>
+</body>
+</html>

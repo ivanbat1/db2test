@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+
+{% block article %}
+    <div class="information">
+        <p>Адміністратором даного сайту є <h3>Батурін Іван</h3></p>
+        <img src="{% static 'image2.jpg' %}" width = '200px' heigth = '200px'>
+        <p>Цей сайт потребує оновлень</p>
+        <ul>
+            <li>Додавання/видалення власноруч статті</li>
+            <li>Накрутка вподобань</li>
+            <li>Реєстрація за допомогою пошти</li>
+
+        </ul>
+    <p>Найближчим часом вийде оновлення</p>
+    </div>
+    <div class="large-8 columns">
+{% for article in articles %}
+    <h6>{{ article.article_date }}</h6>
+    <h4><a href="/article/get/{{ article.id }}/">{{ article.article_title }}</a></h4>
+    <p>{{ article.article_text }}</p>
+    <p><a href="/article/addlike/{{ article.id }}/"><img src="{% static 'image.jpg' %}" width = '25px' heigth = '25px'></a>{{ article.article_likes }}</p>
+    <hr>
+{% endfor %}
+{% endblock %}
