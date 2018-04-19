@@ -149,3 +149,11 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST      = 'smtp.gmail.com'
+EMAIL_PORT      = 587
+EMAIL_HOST_USER = 'baturin.ivan9@gmail.com'
+EMAIL_HOST_PASSWORD = 'Ivanbaturin1999'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Server <server@whatever.com>'

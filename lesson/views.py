@@ -12,6 +12,7 @@ from django.contrib import auth
 def articles(request):
     return render(request, 'articles.html', {'articles':Article.objects.all(), 'username':auth.get_user(request).username})
 
+
 def article(request, article_id=1):
     comment_form = CommentForm
     args = {}
@@ -21,6 +22,7 @@ def article(request, article_id=1):
     args['form'] = comment_form
     args['username'] = auth.get_user(request).username
     return render(request, 'article.html', args)
+
 
 def addlike(request, article_id):
     try:
@@ -36,6 +38,7 @@ def addlike(request, article_id):
     except ObjectDoesNotExist:
         raise Http404
     return redirect('/')
+
 
 def addcomment(request, article_id):
     if request.POST and ('pause' not in request.session):

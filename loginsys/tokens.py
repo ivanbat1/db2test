@@ -1,6 +1,3 @@
-from django.test import TestCase
-
-# Create your tests here.
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils import six
 class TokenGenerator(PasswordResetTokenGenerator):
@@ -9,4 +6,4 @@ class TokenGenerator(PasswordResetTokenGenerator):
             six.text_type(user.pk) + six.text_type(timestamp) +
             six.text_type(user.is_active)
         )
-account_activation_token = TokenGener
+account_activation_token = TokenGenerator()
